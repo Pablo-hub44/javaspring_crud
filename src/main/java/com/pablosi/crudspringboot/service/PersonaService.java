@@ -4,13 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.pablosi.crudspringboot.interfaces.IPersona;
-import com.pablosi.crudspringboot.interfazService.IpersonaService;
+import com.pablosi.crudspringboot.interfazService.IPersonaService;
 import com.pablosi.crudspringboot.model.Persona;
 
 // aqui implementaremos la interfaz que habiamos echo, en donde solo declaramos los metodos
-public class PersonaService implements IpersonaService {
+@Service  //ponemos la notacion que va a ser un servicio
+public class PersonaService implements IPersonaService {
 
     @Override
     public void delete(int id) {
@@ -30,14 +32,23 @@ public class PersonaService implements IpersonaService {
 
     @Override
     public Optional<Persona> listarId(int id) {
-        // TODO Auto-generated method stub
-        return Optional.empty();
+        
+        // metodo propio de crudrepository
+        return data.findById(id);
     }
 
     @Override
     public int save(Persona p) {
-        // TODO Auto-generated method stub
-        return 0;
+        int respuesta = 0;
+
+        Persona persona = data.save(p);
+
+        // validamos si persona no es nulo
+        if (!persona.equals(null)) {
+            respuesta =1;
+        }
+
+        return respuesta;
     }
     
 }

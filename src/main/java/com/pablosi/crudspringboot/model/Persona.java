@@ -26,6 +26,11 @@ public class Persona {
         this.telefono = telefono;
     }
 
+    // Constructor sin argumentos requerido por Hibernate
+    public Persona() {
+        // puedo dejarlo vacío o realizar inicializaciones si es necesario
+    }
+
 
     public int getId() {
         return id;

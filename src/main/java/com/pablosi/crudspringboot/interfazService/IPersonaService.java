@@ -6,7 +6,7 @@ import java.util.Optional;
 import com.pablosi.crudspringboot.model.Persona;
 
 // aqui implementaremos la interfaz, donde se ponen los metodos sin cuerpo, pa luego reemcribirlos en servicios donde los implementaremos
-public interface IpersonaService {
+public interface IPersonaService {
     // metodo para mostrar todo
     public List<Persona>listar();
     // metodo para mostrar por id
@@ -17,3 +17,4 @@ public interface IpersonaService {
     public void delete(int id);
 
 }
+

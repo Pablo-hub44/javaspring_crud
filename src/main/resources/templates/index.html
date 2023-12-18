@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- gracias a la depenencdia thymeleaf que pusimos, podremos usar en front html -->
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <div class="container-xl mt-4">
+            <a href="" th:href="@{/new}" class="btn btn-primary mb-2">Nuevo</a>
+
+            <div class="table-responsive">
+                <table class="table table-primary">
+                    <!-- encabezado -->
+                    <thead class="">
+                        <tr>
+                            <td>ID</td>
+                            <td>Nombre</td>
+                            <td>Telefono</td>
+                            <td>Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- aqui usaremos el atributo que asignamos previamente en el controlador "personas" -->
+                        <tr th:each="persona: ${personas}">
+                            <td scope="row" th:text="${persona.id}"></td>
+                            <td th:text="${persona.name}"></td>
+                            <!-- <td th:text="${personas}"></td> -->
+                            <td th:text="${persona.telefono}"></td>
+                            <td>
+                                <!-- como ya enviamos el pbjeto persona al index podemos usar sus datos -->
+                                <a href="" th:href="@{/editar/}+${persona.id}" class="btn btn-warning">Editar</a>
+                                <a href="" class="btn btn-warning">Eliminar</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
