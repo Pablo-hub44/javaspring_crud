@@ -73,6 +73,14 @@ public class controlador {
         return "form";
     }
     
+    // metodo para borrar por id
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable int id, Model model) {
+
+        
+        service.delete(id);
+        return "redirect:/listar";
+    }
 
     // @RequestMapping("/error")
     // public String handleError() {
